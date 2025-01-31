@@ -22,6 +22,8 @@ public class Journal
     }
 
     public void SaveToFile(string filename)
+{
+    try
     {
         using (StreamWriter writer = new StreamWriter(filename))
         {
@@ -31,6 +33,11 @@ public class Journal
             }
         }
     }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"An error occurred while saving to file: {ex.Message}");
+    }
+}
 
     public void LoadFromFile(string filename)
     {
