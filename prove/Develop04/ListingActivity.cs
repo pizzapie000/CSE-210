@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Threading;
-
 public class ListingActivity : Activity
 {
     private static readonly List<string> prompts = new List<string>
@@ -33,11 +29,11 @@ public class ListingActivity : Activity
     public override void Start()
     {
         base.Start();
-        Console.WriteLine($"This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.");
+        StartMessage();
         Console.WriteLine($"Listing prompt: {ListingPrompt}");
         Console.WriteLine("You will have a few seconds to think about the prompt, then start listing items.");
 
-        AnimateSpinner(3000);  // Pause for preparation
+        AnimateCountdown(3);  // Pause for preparation
 
         DateTime endTime = DateTime.Now.AddSeconds(Duration);
 
@@ -49,23 +45,12 @@ public class ListingActivity : Activity
         }
 
         Console.WriteLine($"You have listed {Items.Count} items.");
-        Console.WriteLine("Listing activity completed.");
+        EndMessage();
         End();
     }
 
-    private void AnimateSpinner(int duration)
+    protected override void AnimateActivity(int duration)
     {
-        var spinner = new[] { '|', '/', '-', '\\' };
-        int spinnerIndex = 0;
-        int timeElapsed = 0;
-
-        while (timeElapsed < duration)
-        {
-            Console.Write(spinner[spinnerIndex]);
-            spinnerIndex = (spinnerIndex + 1) % spinner.Length;
-            Thread.Sleep(250);
-            Console.Write("\b");
-            timeElapsed += 250;
-        }
+        // Implement specific animation if needed
     }
 }

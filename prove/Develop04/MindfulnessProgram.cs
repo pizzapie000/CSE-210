@@ -27,7 +27,7 @@ public class MindfulnessProgram
             {
                 currentActivity = activityList[choice - 1];
                 
-                // Prompt for the duration
+                // Prompt for the duration of the activity the user choosees
                 Console.Write("Enter the duration of the activity in seconds: ");
                 int duration = int.Parse(Console.ReadLine());
                 currentActivity.Duration = duration;

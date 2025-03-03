@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Threading;
-
 public class ReflectionActivity : Activity
 {
+    // List of prompts
     private static readonly List<string> prompts = new List<string>
     {
         "Think of a time when you stood up for someone else.",
@@ -12,27 +9,30 @@ public class ReflectionActivity : Activity
         "Think of a time when you did something truly selfless."
     };
 
+    // List of deeper thinking questions
     private static readonly List<string> questions = new List<string>
     {
-        "Why was this experience meaningful to you?",
-        "Have you ever done anything like this before?",
+        "Why did this matter to you?",
+        "Have you done something like this before?",
         "How did you get started?",
         "How did you feel when it was complete?",
         "What made this time different than other times when you were not as successful?",
         "What is your favorite thing about this experience?",
         "What could you learn from this experience that applies to other situations?",
-        "What did you learn about yourself through this experience?",
-        "How can you keep this experience in mind in the future?"
+        "What did you learn about yourself?",
+        "How can you remember this in the future?"
     };
 
     public string ReflectionPrompt { get; private set; }
 
+    // Constructor to set the description and duration, then it picks a random prompt.
     public ReflectionActivity(string description, int duration)
         : base(duration, description)
     {
         ReflectionPrompt = GetRandomPrompt();
     }
 
+    // Method to select a random prompt from the list
     private string GetRandomPrompt()
     {
         Random random = new Random();
@@ -40,6 +40,7 @@ public class ReflectionActivity : Activity
         return prompts[index];
     }
 
+    // Method to select a random question from the list
     private string GetRandomQuestion()
     {
         Random random = new Random();
@@ -47,14 +48,14 @@ public class ReflectionActivity : Activity
         return questions[index];
     }
 
+    // Starts the reflection activity
     public override void Start()
     {
         base.Start();
-        Console.WriteLine($"This activity will help you reflect on times in your life when you have shown strength and resilience.");
+        StartMessage();
         Console.WriteLine($"Reflection prompt: {ReflectionPrompt}");
-        Console.WriteLine("You will be prompted with questions to reflect deeply on this experience.");
-        Console.WriteLine("Prepare to begin...");
-        AnimateSpinner(3000);  // Pause to prepare
+        Console.WriteLine("You will be asked more questions to help you think even deeper.");
+        AnimateCountdown(3);  // Pause to let them prepare
 
         int timeElapsed = 0;
 
@@ -62,27 +63,17 @@ public class ReflectionActivity : Activity
         {
             string question = GetRandomQuestion();
             Console.WriteLine($"Reflection question: {question}");
-            AnimateSpinner(30000);  // Pauses for 30 seconds
+            AnimateCountdown(30);  // Pauses for 30 seconds
             timeElapsed += 30;
         }
 
-        Console.WriteLine("Reflection activity completed.");
+        EndMessage();
         End();
     }
 
-    private void AnimateSpinner(int duration)
+    // Method for customizeds animations
+    protected override void AnimateActivity(int duration)
     {
-        var spinner = new[] { '|', '/', '-', '\\' };
-        int spinnerIndex = 0;
-        int timeElapsed = 0;
-
-        while (timeElapsed < duration)
-        {
-            Console.Write(spinner[spinnerIndex]);
-            spinnerIndex = (spinnerIndex + 1) % spinner.Length;
-            Thread.Sleep(250);
-            Console.Write("\b");
-            timeElapsed += 250;
-        }
+        // Uses a specific animation. I have a specific animation I built for the breathingactivity.
     }
 }

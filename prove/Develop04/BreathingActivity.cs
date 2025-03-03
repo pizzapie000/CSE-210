@@ -1,6 +1,3 @@
-using System;
-using System.Threading;
-
 public class BreathingActivity : Activity
 {
     private const int CycleDuration = 8;  // 4 seconds inhale + 4 seconds exhale
@@ -13,7 +10,7 @@ public class BreathingActivity : Activity
     public override void Start()
     {
         base.Start();
-        Console.WriteLine("This activity will help you relax by walking you through breathing in and out slowly.");
+        StartMessage();
         Console.WriteLine("Clear your mind and focus on your breathing.");
 
         int repetitions = Duration / CycleDuration;
@@ -21,25 +18,17 @@ public class BreathingActivity : Activity
         for (int i = 0; i < repetitions; i++)
         {
             Console.Write("Inhale...");
-            AnimateBreath(true);  // Animate inhale
+            AnimateCountdown(4);  // Animate inhale
             Console.WriteLine("\nExhale...");
-            AnimateBreath(false);  // Animate exhale
+            AnimateCountdown(4);  // Animate exhale
         }
 
-        Console.WriteLine("Breathing exercise done.");
+        EndMessage();
         End();
     }
 
-    private void AnimateBreath(bool isInhale)
+    protected override void AnimateActivity(int duration)
     {
-        var stages = new[] { "()", "( )", "(  )", "(   )" };
-
-        if (!isInhale) Array.Reverse(stages);
-
-        foreach (var stage in stages)
-        {
-            Console.WriteLine(stage);  // Print on a new line, then wait for 1 second (1000 milliseconds)
-            Thread.Sleep(1000);
-        }
+        // Implement specific animation if needed
     }
 }
