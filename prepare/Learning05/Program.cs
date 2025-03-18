@@ -13,7 +13,7 @@ class Program
             new Circle("Green", 2.5)
         };
 
-        // Iterate through the list and display details
+        // look through the list and display details
         foreach (Shape shape in shapes)
         {
             Console.WriteLine($"Shape Color: {shape.GetColor()}, Area: {shape.GetArea():0.00}");
