@@ -7,7 +7,7 @@ class Program
         GoalManager goalManager = new GoalManager();
         string filePath = "goals.txt"; // path for saving/loading goals
         int userScore = 0; // Tracks the user's score
-        int userLevel = 1; // Tracks the user's level
+        int userLevel = 1; // track the user's level
 
         // Main menu loop
         while (true)
@@ -23,7 +23,7 @@ class Program
             Console.Write("Choose an option: ");
             string option = Console.ReadLine();
 
-            // menu options
+            // menu
             switch (option)
             {
                 case "1":
@@ -75,43 +75,43 @@ class Program
                         userLevel = userScore / 1000 + 1; // Level up every 1000 points
                         if (userLevel > previousLevel)
                         {
-                            Console.WriteLine($"Congratulations! You leveled up to Level {userLevel}!");
+                            Console.WriteLine($"Good work! You are now level {userLevel}!");
                         }
                     }
                     break;
 
                 case "3":
-                    // Display the list of all goals
+                    // list of all goals
                     Console.WriteLine("\nCurrent Goals:");
                     goalManager.DisplayAllGoals();
                     break;
 
                 case "4":
-                    // Save goals to a file
+                    // Save goals
                     goalManager.SaveGoals(filePath);
-                    Console.WriteLine("Goals saved successfully!");
+                    Console.WriteLine("Goals saved");
                     break;
 
                 case "5":
-                    // Load goals from a file
+                    // Loads goals
                     goalManager.LoadGoals(filePath);
-                    Console.WriteLine("Goals loaded successfully!");
+                    Console.WriteLine("Goals loaded");
                     break;
 
                 case "6":
-                    // Display the user's score and level
+// score and level
                     Console.WriteLine($"\nYour current score is: {userScore} points");
                     Console.WriteLine($"Your current level is: {userLevel}");
                     break;
 
                 case "0":
-                    // Exit the program
-                    Console.WriteLine("Goodbye!");
+                    // Exit
+                    Console.WriteLine("see you later!");
                     return;
 
                 default:
-                    // Handle invalid menu options
-                    Console.WriteLine("Invalid option. Please try again.");
+                    // just in case there is an error menu
+                    Console.WriteLine("That input doesnt work. Try another.");
                     break;
             }
         }

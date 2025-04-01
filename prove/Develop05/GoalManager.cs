@@ -1,7 +1,5 @@
 using System.IO;
 using System.Collections.Generic;
-
-// Manages a collection of goals
 public class GoalManager
 {
     public List<Goal> Goals = new List<Goal>(); // List of all goals
@@ -33,10 +31,10 @@ public class GoalManager
         }
     }
 
-    // Loads goals from a file
+    // Loads the goals the file
     public void LoadGoals(string filePath)
     {
-        Goals.Clear(); // Clear existing goals
+        Goals.Clear(); // clears any goals that are there from before
         using (StreamReader reader = new StreamReader(filePath))
         {
             string line;

@@ -1,7 +1,5 @@
-// Represents a goal that must be accomplished a specific number of times
 public class ChecklistGoal : Goal
 {
-    // Number of times to complete the goal
     public int RequiredCount { get; set; }
     public int CompletedCount { get; set; } // times the goal has been completed
     public int Bonus { get; set; } // Bonus points for completing the goal
