@@ -1,4 +1,4 @@
-// comment on a YouTube video
+// This is for the actual comment on a YouTube video
 public class Comment
 {
     // Properties to store details
