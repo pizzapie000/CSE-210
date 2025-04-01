@@ -8,13 +8,13 @@ class Program
         // List to store activities of different types
         List<Activity> activities = new List<Activity>
         {
-            // Running activity
+            // Tests Running activity
             new Running(new DateTime(2022, 11, 3), 30, 3.0),
 
-            // Cycling activity
+            //  Tests ycling activity
             new Cycling(new DateTime(2022, 11, 3), 40, 15.0),
 
-            // Swimming activity
+            // Tests Swimming activity
             new Swimming(new DateTime(2022, 11, 3), 45, 20)
         };
 

@@ -23,7 +23,7 @@ class Program
             Console.Write("Choose an option: ");
             string option = Console.ReadLine();
 
-            // menu
+            // menu settings
             switch (option)
             {
                 case "1":
@@ -58,7 +58,7 @@ class Program
                     break;
 
                 case "2":
-                    // Record progress on a goal and award points
+                    // This records my progress on a goal and award points
                     Console.WriteLine("Choose a goal to record:");
                     goalManager.DisplayAllGoals();
                     Console.Write("Enter goal number: ");
@@ -70,7 +70,7 @@ class Program
                         selectedGoal.MarkComplete();
                         Console.WriteLine($"Event recorded! You earned {selectedGoal.Points} points.");
 
-                        // Update level based on score
+                        // level up
                         int previousLevel = userLevel;
                         userLevel = userScore / 1000 + 1; // Level up every 1000 points
                         if (userLevel > previousLevel)
@@ -81,7 +81,7 @@ class Program
                     break;
 
                 case "3":
-                    // list of all goals
+                    // list of all the goals
                     Console.WriteLine("\nCurrent Goals:");
                     goalManager.DisplayAllGoals();
                     break;

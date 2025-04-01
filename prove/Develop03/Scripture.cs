@@ -23,7 +23,7 @@ public class Scripture
 
     public string DisplayText()
     {
-        // Display the scripture with hidden words replaced by underscores
+        // Show the scripture with underscores to hide the words
         string displayedText = "";
         foreach (Word word in words)
         {
@@ -36,7 +36,7 @@ public class Scripture
     {
         // Randomly hide a few words that are not already hidden
         Random random = new Random();
-        int wordsToHide = 3; // Number of words hidden per step
+        int wordsToHide = 3;
 
         for (int i = 0; i < wordsToHide; i++)
         {

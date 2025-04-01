@@ -1,33 +1,19 @@
 public class Word
 {
-    private string text;
-    private bool isHidden;
+    // Properties
+    public string Text { get; }
+    public bool IsHidden { get; private set; }
 
+    // Constructor
     public Word(string text, bool isHidden = false)
     {
-        this.text = text;
-        this.isHidden = isHidden;
-    }
-
-    public string Text
-    {
-        get { return text; }
-        private set { text = value; }
-    }
-
-    public bool IsHidden
-    {
-        get { return isHidden; }
-        private set { isHidden = value; }
-    }
-
-    public void SetText(string text)
-    {
-        this.text = text;
+        Text = text;
+        IsHidden = isHidden;
     }
 
     public void SetHidden(bool hidden)
     {
-        isHidden = hidden;
+        IsHidden = hidden;
     }
 }
+

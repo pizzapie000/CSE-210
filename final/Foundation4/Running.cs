@@ -14,7 +14,7 @@ class Running : Activity
         this.distanceInMiles = distance;
     }
 
-    // Implementing abstract methods
+    // abstract methods
     public override double GetDistance() => distanceInMiles;
     public override double GetSpeed() => (distanceInMiles / DurationInMinutes) * 60;
     public override double GetPace() => DurationInMinutes / distanceInMiles;
