@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-// This section represents aa YouTube video
+// This section represents a YouTube video
 public class Video
 {
 

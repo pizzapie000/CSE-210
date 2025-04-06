@@ -11,7 +11,7 @@ class Program
             // Tests Running activity
             new Running(new DateTime(2022, 11, 3), 30, 3.0),
 
-            //  Tests ycling activity
+            //  Tests Cycling activity
             new Cycling(new DateTime(2022, 11, 3), 40, 15.0),
 
             // Tests Swimming activity
